@@ -1,0 +1,5 @@
+{
+  "name": "TaskHelper",
+  "description": "A smart academic planner inspired by Notre Dame aesthetics. It breaks down long-term assignments into manageable work sessions and schedules them around your life using Gemini AI.",
+  "requestFramePermissions": []
+}
