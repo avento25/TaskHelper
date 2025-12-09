@@ -1,0 +1,131 @@
+# **Product Requirements Document (PRD)**
+
+## **1\. Project Overview**
+
+**Summary:**  
+This website allows users to manage academic and personal schedules by intelligently planning tasks around existing commitments. It enables users to input assignments, break them into manageable work sessions, and automatically schedule those sessions into "free blocks" in their calendar.
+
+**Context/Background:**  
+Designed to combat procrastination and "planning paralysis," this tool is inspired by study frameworks that break large tasks into smaller steps. It is specifically tailored for students who struggle with executive function (e.g., ADHD), aiming to reduce decision fatigue by automating the "when should I do this?" decision process.
+
+## **2\. Goals and Objectives**
+
+**Primary Goal(s):**
+
+* **Frictionless Entry:** Allow users to input a task (Name, Estimated Time, Deadline) in under 30 seconds.  
+* **Smart Allocation:** Automatically find gaps in the user’s schedule to place work sessions, respecting existing classes and events.  
+* **Visual Clarity:** Provide a unified view of fixed commitments (classes) and flexible work sessions.
+
+**Secondary Goal(s):**
+
+* **Proactive Rescheduling:** Detect when a scheduled session has passed without completion and *automatically propose* a specific new time slot (removing the burden of rescheduling from the user).  
+* **Context Awareness:** Allow users to group tasks (e.g., "Deep Work," "Light Study") to match their energy levels.
+
+## **3\. Target Audience**
+
+**Who are the users?**
+
+* University students, particularly those with ADHD, executive dysfunction, or heavy course loads, who feel overwhelmed by deadlines.
+
+**User Needs:**
+
+* **Cognitive Offloading:** "Don't make me choose when to work; just tell me when to work."  
+* **Forgiveness:** A system that doesn't "shame" them for missing a task but simply adapts the plan.  
+* **Visual Simplicity:** An interface that is not cluttered, reducing distraction.
+
+## **4\. Key Features / Requirements**
+
+**Must-Have Features:**
+
+* **Calendar Import (Read-Only):** Ability to import existing schedules via .ics file upload or Google Calendar URL (Read-only access) so the system knows when *not* to schedule tasks.  
+* **Task Decomposition Engine:** User enters "Write Essay (5 hours)"; System schedules five 1-hour blocks or three 1.5-hour blocks based on preferences.  
+* **The "Planner" Chatbot:** An AI assistant (Gemini-powered) that helps flesh out vague tasks ("I have a bio project") into concrete steps and handles complex rescheduling requests ("Shift everything today to tomorrow").  
+* **Session Tracking:** Simple "Mark Complete" or "Missed" buttons on calendar blocks.
+
+**Nice-to-Have Features:**
+
+* **"Focus Mode" Toggle:** Hides all future tasks, showing only *what needs to be done right now*.  
+* **API Key Guide:** A built-in modal or tooltip guiding non-technical users on how to paste their Gemini API key if required.
+
+## **5\. Design & User Experience**
+
+**Visual Style / Vibe:**
+
+* **Hyper-Minimalist:** "Less is more." White space is prioritized to prevent users from feeling overwhelmed.  
+* **Cognitive Accessibility First:** Interface should minimize distractions. No auto-playing animations. One primary action per screen.
+
+**Branding / Colors / Fonts:**
+
+* **Palette (Notre Dame Accents):**  
+  * **Base:** White/Light Gray (Light Mode) and Deep Charcoal (Dark Mode).  
+  * **Primary Action Color:** Notre Dame Gold (used for "Add Task" or "Confirm").  
+  * **Status Colors:** Notre Dame Blue (Scheduled), Green (Completed).  
+*   
+* **Typography:**  
+  * **Headers:** Serif (e.g., *Merriweather* or *Playfair Display*) for a collegiate/academic feel.  
+  * **UI/Body:** **Sans-Serif** (e.g., *Inter* or *Roboto*) is mandatory for buttons, lists, and calendar entries to ensure maximum readability for neurodivergent users.  
+* 
+
+**Accessibility Considerations:**
+
+* **High Contrast:** Essential for visibility.  
+* **Clear Feedback:** When a task is scheduled, use simple animations (e.g., a checkmark) to give a dopamine hit.  
+* **Error Prevention:** "Undo" buttons available for all major actions.
+
+## **6\. Content Requirements**
+
+**Pages / Sections:**
+
+1. **Dashboard (Home):** A combined view of the current week showing "Fixed" events (Classes \- Grey) and "Flexible" events (Tasks \- Blue).  
+2. **Task Input Modal:** A clean, focused pop-up to add assignments without leaving the calendar view.  
+3. **Settings:** API Key input, Theme toggle, Calendar Import management.
+
+**Specific Content:**
+
+* "How to get your API Key" tutorial text.  
+* Motivational blurbs (optional, can be toggled off) when completing tasks.
+
+## **7\. Technical Constraints**
+
+**Technology Stack:**
+
+* **Frontend/Logic:** Generated via AI Studio (HTML/CSS/JS or React).  
+* **AI Model:** Gemini (via Google AI Studio).
+
+**Hosting / Deployment:**
+
+* Code generated by AI Studio, to be deployed via a standard web host (e.g., Vercel, Netlify, or GitHub Pages) for accessibility.
+
+**Performance Requirements:**
+
+* **UI Load:** Initial page load under **2 seconds**.  
+* **AI Response:** Schedule generation should take under **10 seconds** (with a visible "Thinking..." loading state to keep user engaged).
+
+## **8\. Out of Scope**
+
+* **2-Way Sync:** The app will *read* external calendars to find free time, but it will **not** write events back to Google Calendar/Outlook (users view their schedule inside this app).  
+* **LMS Integration:** No direct connection to Canvas/Blackboard.  
+* **Social Features:** No group projects or sharing.
+
+## **9\. Acceptance Criteria**
+
+**Calendar Integration:**
+
+* User can upload an .ics file or link a calendar URL.  
+* System correctly identifies "Busy" times and refuses to schedule tasks during those blocks.
+
+**Task Scheduling:**
+
+* User enters a task with a deadline.  
+* System successfully populates the calendar with the correct number of sessions before the deadline.
+
+**Rescheduling (The "Anti-Stress" Test):**
+
+* If a user clicks "I missed this" on a past event, the system immediately highlights the next available free slot and asks, "Move it here?"  
+* User accepts with one click.
+
+**UI/UX:**
+
+* The "Add Task" flow requires no more than 3 inputs from the user.  
+* Text is legible (AAA contrast ratio) in both Light and Dark modes.
+
