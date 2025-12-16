@@ -22,6 +22,9 @@ The AI reduces cognitive load, helps users clarify assignments quickly, and remo
 Example Prompt:
 (Assuming a study session is already created) Move my Biology study session back a day.
 
+# Demo Recording
+https://notredame.zoom.us/rec/share/14e7RJDm1TU61XxZ9O0YHPMUVwv8ic4K2X1pJ5QGVAAsY8cSzmsqPfno4dDUvwlo.-pz0QeAFLWXUoiHj?startTime=1765848742000
+
 # Run and deploy your AI Studio app
 
 This contains everything you need to run your app locally.
